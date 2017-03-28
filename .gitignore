@@ -1,12 +1,12 @@
+extra/
+.idea/
+*.sqlite3
+kopilanding/settings/local.py
+
+
 __pycache__/
 *.py[cod]
 *$py.class
-
-/extra
-.idea/
-*.sqlite3
-_settings.py
-
 
 # C extensions
 *.so
