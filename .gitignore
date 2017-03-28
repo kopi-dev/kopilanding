@@ -1,9 +1,13 @@
 __pycache__/
 *.py[cod]
 *$py.class
+
+/extra
 .idea/
 *.sqlite3
 _settings.py
+
+
 # C extensions
 *.so
 

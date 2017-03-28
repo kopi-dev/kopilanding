@@ -11,9 +11,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-ALLOWED_HOSTS = []
+SECRET_KEY = 'your secret'
 
+DEBUG = True
 
+try:
+    from local_settings import *
+except ImportError:
+    pass
+
+#ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
@@ -105,8 +112,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-try:
-    from local_settings import *
-except ImportError:
-    pass
 
