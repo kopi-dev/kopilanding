@@ -20,6 +20,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+    <link href="{% static "css/jumbotron.css" %}" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="/static/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -35,7 +36,6 @@
   </head>
 
   <body>
-
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -46,21 +46,22 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">{{ page_obj.project_name }}</a>
-            <a class="navbar-right" href="#">{{ page_obj.phone }}</a>
+
         </div>
-    <!--
+
         <div id="navbar" class="navbar-collapse collapse">
+{#            <a class="navbar-right" href="#">{{ page_obj.phone }}</a>#}
           <form class="navbar-form navbar-right">
             <div class="form-group">
-              <input placeholder="Email" class="form-control" type="text">
+              <input placeholder="Ваш email или телефон" class="form-control" type="text">
             </div>
             <div class="form-group">
-              <input placeholder="Password" class="form-control" type="password">
+              <input placeholder="Телефон" class="form-control" type="text">
             </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
+            <button type="submit" class="btn btn-danger">Ждун звонка</button>
+            <button type="submit" class="btn">{{ page_obj.phone }}</button>
           </form>
-        </div><!--/.navbar-collapse
-        -->
+        </div><!--/.navbar-collapse -->
 
       </div>
     </nav>
@@ -69,9 +70,9 @@
     <div class="jumbotron">
       <div class="container">
         <h1>{{ page_obj.title }}</h1>
-        <p>{{ page_obj.title_description }}</p>
+        <p style="color: #fff;">{{ page_obj.title_description }}</p>
           {% if page_obj.title_btn %}
-        <p><a class="btn btn-primary btn-lg" href="{{ page_obj.title_btn_url }}" role="button">{{ page_obj.title_btn }}</a></p>
+        <p><a class="btn btn-danger btn-lg" href="{{ page_obj.title_btn_url }}" role="button">{{ page_obj.title_btn }}</a></p>
           {% endif %}
       </div>
     </div>
@@ -79,7 +80,6 @@
     <div class="container">
      	{{ page_obj.content|safe }}
     </div> <!-- /container -->
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

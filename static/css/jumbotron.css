@@ -3,3 +3,25 @@ body {
   padding-top: 50px;
   padding-bottom: 20px;
 }
+
+.jumbotron {
+  background-color: #5180a5;
+}
+
+.navbar-inverse {
+  background-color: #fff;
+  border-color: #888;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #111;
+}
+
+.jumbotron h1, .jumbotron .h1 {
+  text-align: center;
+  color: #fff;
+}
+
+/*p {*/
+  /*color: #fff;*/
+/*}*/
