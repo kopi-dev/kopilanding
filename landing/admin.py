@@ -4,20 +4,29 @@ from .models import Page, MainReasonToBelieve, Process
 # Register your models here.
 
 
-class MainReasonToBelieveInline(admin.StackedInline):
+class MainReasonToBelieveInline(admin.TabularInline):
     model = MainReasonToBelieve
-    #extra = 3
+    fieldsets = [
+        ('Пункты главного блока', {'fields': ['text']}),
+    ]
+    extra = 1
 
 
-class ProcessInline(admin.StackedInline):
+class ProcessInline(admin.TabularInline):
     model = Process
-
+    fieldsets = [
+        ('Процесс', {'fields': ['title','sub_title','content','img_path'], 'classes': ['collapse']})
+    ]
+    extra = 1
 
 class PageAdmin(admin.ModelAdmin):
-    #fieldsets = [
-    #    (None,               {'fields': ['question_text']}),
-    #    ('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),
-    #]
+
+    fieldsets = [
+        ('Называние страницы', {'fields': ['page_name']}),
+        ('Панель навигации',   {'fields': ['project_name', 'phone']}),
+        ('Главный блок',       {'fields': ['title', 'title_btn', 'title_btn_url']}),
+        ('Подвал',             {'fields': ['footer_content'], 'classes': ['collapse']}),
+    ]
     inlines = [MainReasonToBelieveInline, ProcessInline]
 
 

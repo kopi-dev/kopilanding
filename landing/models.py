@@ -28,6 +28,9 @@ class MainReasonToBelieve(models.Model):
     page = models.ForeignKey(Page, on_delete=models.CASCADE)
     text = models.CharField('Текст под заголовком', max_length=100, blank=True, null=True)
 
+    def __str__(self):
+        return ''
+
 
 class Process(models.Model):
     page = models.ForeignKey(Page, on_delete=models.CASCADE)

@@ -29,6 +29,12 @@
     {% block process %}
     {% endblock %}
 
+    {% block footer %}
+        <div class="container mt-10">
+          {{ page_obj.footer_content|safe }}
+        </div>
+    {% endblock %}
+
     {% include 'javascripts.html' %}
 
   </body>
