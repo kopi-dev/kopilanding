@@ -5,13 +5,14 @@
   <div class="jumbotron">
     <div class="container">
       <h1>{{ page_obj.title }}</h1>
-        <p class="main">
-          <i class="fa fa-circle iconp" aria-hidden="true"></i>
-          <span> {{ page_obj.title_description }} </span>
-        </p>
-        <p>
-          <i class="fa fa-circle fa-1" aria-hidden="true"></i>{{ page_obj.title_description }}
-        </p>
+
+        {% for reason in reas_to_bel_obj %}
+          <p class="main">
+            <i class="fa fa-circle iconp" aria-hidden="true"></i>
+            <span> {{ reason.text }} </span>
+          </p>
+        {% endfor %}
+
         {% if page_obj.title_btn %}
         <p><a class="btn btn-danger btn-lg" href="{{ page_obj.title_btn_url }}" role="button">{{ page_obj.title_btn }}</a></p>
         {% endif %}
@@ -19,8 +20,34 @@
 </div>
 {% endblock %}
 
-{% block content %}
+{% block process %}
+  <!-- START THE PROCESS -->
   <div class="container">
-    {{ page_obj.content|safe }}
+    {% for process in process_obj %}
+      <hr class="featurette-divider">
+      <div class="row featurette">
+
+      {% if forloop.counter|divisibleby:2 %}
+        <div class="col-md-7">
+      {% else %}
+        <div class="col-md-7 col-md-push-5">
+      {% endif %}
+
+          <h2 class="featurette-heading">{{ process.title }} <span class="text-muted">{{ process.sub_title }}.</span></h2>
+          <p class="lead">{{ process.content }}</p>
+        </div>
+
+      {% if forloop.counter|divisibleby:2 %}
+        <div class="col-md-5">
+      {% else %}
+        <div class="col-md-5 col-md-pull-7">
+      {% endif %}
+
+          <img class="featurette-image img-responsive center-block" src="{{ process.img_path }}" alt="{{ process.title }}">
+        </div>
+      </div>
+    {% endfor %}
   </div> <!-- /container -->
+  <!-- /END THE FEATURETTES -->
 {% endblock %}
+
