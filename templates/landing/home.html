@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block jumbotron_content %}
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1>{{ page_obj.title }}</h1>
+        <p class="main">
+          <i class="fa fa-circle iconp" aria-hidden="true"></i>
+          <span> {{ page_obj.title_description }} </span>
+        </p>
+        <p>
+          <i class="fa fa-circle fa-1" aria-hidden="true"></i>{{ page_obj.title_description }}
+        </p>
+        {% if page_obj.title_btn %}
+        <p><a class="btn btn-danger btn-lg" href="{{ page_obj.title_btn_url }}" role="button">{{ page_obj.title_btn }}</a></p>
+        {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    {{ page_obj.content|safe }}
+  </div> <!-- /container -->
+{% endblock %}

@@ -4,7 +4,7 @@ from landing.models import Page
 
 class LandingView(TemplateView):
 
-    template_name = 'landing/index.html'
+    template_name = 'home.html'
 
     def get_context_data(self, **kwargs):
         context = super(LandingView, self).get_context_data(**kwargs)
