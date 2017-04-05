@@ -46,3 +46,17 @@ class Process(models.Model):
     class Meta:
         verbose_name = 'Процесс'
         verbose_name_plural = 'Процесс'
+
+
+class Document(models.Model):
+    email = models.EmailField()
+    description = models.CharField(max_length=500, blank=True)
+    document = models.FileField(upload_to='documents/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Заказ на расчет'
+        verbose_name_plural = 'Заказы на расчет'
+
+    def __str__(self):
+        return self.email

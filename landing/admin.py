@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Page, MainReasonToBelieve, Process
+from .models import Page, MainReasonToBelieve, Process, Document
 # Register your models here.
 
 
@@ -29,5 +29,12 @@ class PageAdmin(admin.ModelAdmin):
     ]
     inlines = [MainReasonToBelieveInline, ProcessInline]
 
+class DocumentAdmin(admin.ModelAdmin):
+	list_display = ["email", "document", "uploaded_at"]
+	#form = SignUpForm
+	# class Meta:
+	# 	model = SignUp
+
 
 admin.site.register(Page, PageAdmin)
+admin.site.register(Document, DocumentAdmin)

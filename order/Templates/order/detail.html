@@ -1,0 +1,7 @@
+<h1>Форма</h1>
+
+<form action="{% url 'order: ' question.id %}" method="post">
+{% csrf_token %}
+    <input type="text" name="name" value="Ghbdtn" />
+    <input type="submit" value="Отправить" />
+</form>
