@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block jumbotron_content %}
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="jumbotron" style="background-color: {{ page_obj.background_color }};">
@@ -68,8 +70,16 @@
 {#{% endblock %}#}
 
 {% block content_form_s %}
-    <form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
-    {{ form }}
-    <input type="submit" name="" value="Join">
-    </form>
+
+<div class="container" style="background-color: #dadada">
+    <h2 style="text-align: center"><a name="zakaz"></a>Узнать стоимость заказа</h2>
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+            <form class="form" method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
+            {{ form|crispy }}
+            <input class="btn btn-danger btn-lg" type="submit" name="" value="Отправить">
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

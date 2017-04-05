@@ -22,10 +22,16 @@ body {
   color: #fff;
 }
 
-.iconp i {
+i.fa.fa-circle.iconp {
   font-size: small;
+  vertical-align: middle;
+  color: #fff;
 }
 
 .main p {
   color: #555;
+}
+
+.main span {
+  color: #fff;
 }

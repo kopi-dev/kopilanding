@@ -7,6 +7,7 @@ class Page(models.Model):
     # NavBar
     project_name = models.CharField('Название проекта', default='My Landing Page', max_length=40)
     phone = models.CharField('Телефон', default='+7 000 000-00-00', max_length=20)
+    mail = models.EmailField('E-mail', default='info@domen.com')
 
     # Main
     title = models.CharField('Заголовок', max_length=200)
@@ -49,10 +50,10 @@ class Process(models.Model):
 
 
 class Document(models.Model):
-    email = models.EmailField()
-    description = models.CharField(max_length=500, blank=True)
-    document = models.FileField(upload_to='documents/')
-    uploaded_at = models.DateTimeField(auto_now_add=True)
+    email = models.EmailField('E-mail')
+    description = models.CharField('Комментарий к заказу', max_length=500, blank=True)
+    document = models.FileField('Прикрепить файл', upload_to='documents/')
+    uploaded_at = models.DateTimeField('Создан', auto_now_add=True)
 
     class Meta:
         verbose_name = 'Заказ на расчет'
