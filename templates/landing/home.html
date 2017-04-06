@@ -22,6 +22,30 @@
 </div>
 {% endblock %}
 
+{% block ott %}
+<div class="container marketing ">
+ <div class="row">
+  <div class="col-lg-4">
+    <img class="img-circle ott-center" align="middle" src="/static/images/ott/1.png" alt="Generic placeholder image" width="80" height="80">
+    <h2 class="ott-center">Узнайте стоимость</h2>
+    <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+  </div><!-- /.col-lg-4 -->
+
+  <div class="col-lg-4">
+    <img class="img-circle ott-center" src="/static/images/ott/2.png" alt="Generic placeholder image" width="80" height="80">
+    <h2 class="ott-center">Оплатите заказ онлайн</h2>
+    <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+  </div><!-- /.col-lg-4 -->
+
+  <div class="col-lg-4">
+    <img class="img-circle ott-center" src="/static/images/ott/3.png" alt="Generic placeholder image" width="80" height="80">
+    <h2 class="ott-center">Получите доставку</h2>
+    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+  </div><!-- /.col-lg-4 -->
+ </div>
+</div>
+{% endblock %}
+
 {% block process %}
   <!-- START THE PROCESS -->
   <div class="container">
@@ -55,11 +79,11 @@
 
 {% block content_form_s %}
 
-<div class="container" style="background-color: #dadada; margin-top: 20px;">
-    <h2 style="text-align: center"><a name="zakaz"></a>Узнать стоимость заказа</h2>
+<div class="container" style="background-color: #5180a5; margin-top: 20px;">
+    <h2 style="text-align: center; color: #fff"><a name="zakaz"></a>Узнать стоимость заказа</h2>
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
-            <form class="form" method="POST" action="" enctype="multipart/form-data" style="margin-bottom: 10px;">{% csrf_token %}
+            <form class="form" method="POST" action="" enctype="multipart/form-data" style="margin-bottom: 10px; color: #fff;">{% csrf_token %}
             {{ form|crispy }}
             <input class="btn btn-danger btn-lg" type="submit" name="" value="Отправить">
             </form>

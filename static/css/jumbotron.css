@@ -35,3 +35,12 @@ i.fa.fa-circle.iconp {
 .main span {
   color: #fff;
 }
+
+img.ott-center {
+  display: block;
+  margin: 0 auto;
+}
+
+h2.ott-center {
+  text-align: center;
+}
