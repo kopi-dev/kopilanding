@@ -17,15 +17,21 @@ body {
   color: #111;
 }
 
+a.navbar-brand {
+  font-family: PF_Highway_Sans_Pro;
+}
+
 .jumbotron h1, .jumbotron .h1 {
   text-align: center;
   color: #fff;
+  font-family: PF_Highway_Sans_Pro;
 }
 
 i.fa.fa-circle.iconp {
   font-size: small;
   vertical-align: middle;
   color: #fff;
+
 }
 
 .main p {
@@ -44,3 +50,4 @@ img.ott-center {
 h2.ott-center {
   text-align: center;
 }
+
