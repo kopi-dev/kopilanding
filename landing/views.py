@@ -1,8 +1,7 @@
+from django.contrib import messages
 from django.core.mail import send_mail
-#from django.conf import settings
 from kopilanding.settings import local
-from django.shortcuts import render, redirect
-from django.views.generic import View, TemplateView, FormView
+from django.views.generic import TemplateView, FormView
 
 
 from landing.models import *
@@ -50,9 +49,14 @@ class LandingView(TemplateView, FormView):
                 fail_silently=False,
             )
 
+            messages.add_message(self.request, messages.SUCCESS, 'Заявка успешно отправлена')
+
             try:
                 from kopilanding.telegrambot import send_message
                 send_message([subject, content])
             except: pass
 
-            return redirect('landing')
+            #return redirect('landing')
+            #return super(LandingView, self).form_valid(form)
+
+            return self.render_to_response(self.get_context_data())

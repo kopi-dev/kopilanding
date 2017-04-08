@@ -57,8 +57,8 @@ class Document(models.Model):
     uploaded_at = models.DateTimeField('Создан', auto_now_add=True)
 
     class Meta:
-        verbose_name = 'Заявка на расчет'
-        verbose_name_plural = 'Заявки на расчет'
+        verbose_name = 'Заказ на расчет'
+        verbose_name_plural = 'Заявка на расчет'
 
     def __str__(self):
         return self.email

@@ -2,7 +2,7 @@ extra/
 .idea/
 *.sqlite3
 kopilanding/settings/local.py
-
+media/
 
 __pycache__/
 *.py[cod]

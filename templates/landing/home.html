@@ -79,6 +79,16 @@
 
 {% block content_form_s %}
 <div class="container" style="background-color: #5180a5; margin-top: 20px;">
+
+{#    <h3>#}
+{#        {% if messages %}#}
+{#            <ul class="message-list">#}
+{#              {% for message in messages %}#}
+{#                <li class="{{ message.tag }}">{{ message }}</li>#}
+{#              {% endfor %}#}
+{#            </ul>#}
+{#        {% endif %}#}
+{#    </h3>#}
     <h2 style="text-align: center; color: #fff"><a name="zakaz"></a>Узнать стоимость заказа</h2>
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
@@ -87,6 +97,15 @@
             <input class="btn btn-danger btn-lg" type="submit" name="" value="Отправить">
             </form>
         </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row" style="margin-top: 20px;">
+    {% if messages %}
+        {% for message in messages %}
+        <h3 class="bg-success text-center" style="padding: 15px;">{{ message }}</h3>
+        {% endfor %}
+    {% endif %}
     </div>
 </div>
 {% endblock %}

@@ -31,7 +31,7 @@ class PageAdmin(admin.ModelAdmin):
 
 
 class DocumentAdmin(admin.ModelAdmin):
-    list_display = ["phone", "email", "document", "uploaded_at"]
+    list_display = ["pk", "phone", "email", "document", "uploaded_at"]
 
 admin.site.register(Page, PageAdmin)
 admin.site.register(Document, DocumentAdmin)
