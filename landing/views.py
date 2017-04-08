@@ -50,4 +50,9 @@ class LandingView(TemplateView, FormView):
                 fail_silently=False,
             )
 
+            try:
+                from kopilanding.telegrambot import send_message
+                send_message([subject, content])
+            except: pass
+
             return redirect('landing')
