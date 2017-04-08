@@ -60,7 +60,7 @@
       {% endif %}
 
           <h2 class="featurette-heading">{{ process.title }} <span class="text-muted">{{ process.sub_title }}</span></h2>
-          <p class="lead">{{ process.content }}</p>
+          <p>{{ process.content }}</p>
         </div>
 
       {% if forloop.counter|divisibleby:2 %}
@@ -105,4 +105,3 @@
   </div>
 </footer>
 {% endblock %}
-

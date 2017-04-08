@@ -50,14 +50,15 @@ class Process(models.Model):
 
 
 class Document(models.Model):
-    email = models.EmailField('E-mail')
+    phone = models.CharField('Телефон для связи', max_length=20)
+    email = models.EmailField('E-mail', blank=True, null=True)
     description = models.CharField('Комментарий к заказу', max_length=500, blank=True)
     document = models.FileField('Прикрепить файл', upload_to='documents/')
     uploaded_at = models.DateTimeField('Создан', auto_now_add=True)
 
     class Meta:
-        verbose_name = 'Заказ на расчет'
-        verbose_name_plural = 'Заказы на расчет'
+        verbose_name = 'Заявка на расчет'
+        verbose_name_plural = 'Заявки на расчет'
 
     def __str__(self):
         return self.email

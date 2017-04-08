@@ -1,4 +1,4 @@
-
+import os
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
@@ -16,3 +16,20 @@ DATABASES = {
 SECRET_KEY = '...'
 
 DEBUG = True
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, '../', 'static'),
+)
+ALLOWED_HOSTS = []
+PATH_TO_DOC = 'site.com/media/documents/'
+
+EMAIL_HOST = ''
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_PORT = 111
+EMAIL_USE_TLS = True
+
+to_email = ['mail@domain.ru']

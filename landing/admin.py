@@ -29,12 +29,9 @@ class PageAdmin(admin.ModelAdmin):
     ]
     inlines = [MainReasonToBelieveInline, ProcessInline]
 
-class DocumentAdmin(admin.ModelAdmin):
-	list_display = ["email", "document", "uploaded_at"]
-	#form = SignUpForm
-	# class Meta:
-	# 	model = SignUp
 
+class DocumentAdmin(admin.ModelAdmin):
+    list_display = ["phone", "email", "document", "uploaded_at"]
 
 admin.site.register(Page, PageAdmin)
 admin.site.register(Document, DocumentAdmin)
