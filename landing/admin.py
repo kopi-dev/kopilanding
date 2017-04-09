@@ -12,12 +12,13 @@ class MainReasonToBelieveInline(admin.TabularInline):
     extra = 1
 
 
-class ProcessInline(admin.TabularInline):
+class ProcessInline(admin.StackedInline):
     model = Process
     fieldsets = [
         ('Процесс', {'fields': ['title','sub_title','content','img_path'], 'classes': ['collapse']})
     ]
     extra = 1
+
 
 class PageAdmin(admin.ModelAdmin):
 

@@ -57,6 +57,4 @@ class LandingView(TemplateView, FormView):
             except: pass
 
             #return redirect('landing')
-            #return super(LandingView, self).form_valid(form)
-
             return self.render_to_response(self.get_context_data())

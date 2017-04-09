@@ -39,10 +39,13 @@ class Process(models.Model):
     title = models.CharField('Заголовок', max_length=150, blank=True, null=True)
     sub_title = models.CharField('Подзаголовок', max_length=150, blank=True, null=True)
     content = models.TextField('Блок', blank=True, null=True)
-    img_path = models.CharField('Ссылка на изображение', max_length=200, blank=True, null=True)
+    img_path = models.TextField('Ссылки на изображения (каждую с новой строки)', blank=True, null=True)
+
+    def img_path_as_list(self):
+        return str(self.img_path).split()
 
     def __str__(self):
-        return ''
+        return self.title
 
     class Meta:
         verbose_name = 'Процесс'
@@ -50,10 +53,11 @@ class Process(models.Model):
 
 
 class Document(models.Model):
+    name = models.CharField('Ваше имя', blank=True, null=True, max_length=25)
     phone = models.CharField('Телефон для связи', max_length=20)
     email = models.EmailField('E-mail', blank=True, null=True)
-    description = models.CharField('Комментарий к заказу', max_length=500, blank=True)
-    document = models.FileField('Прикрепить файл', upload_to='documents/')
+    description = models.TextField('Комментарий к заказу', max_length=500, blank=True, null=True)
+    document = models.FileField('Прикрепить файл', upload_to='documents/', blank=True, null=True)
     uploaded_at = models.DateTimeField('Создан', auto_now_add=True)
 
     class Meta:
