@@ -16,7 +16,9 @@ class Page(models.Model):
     background_color = models.CharField('Цвет фона', default='#5180a5', max_length=7, blank=True, null=True)
 
     # Footer
-    footer_content = models.TextField('Подвал', blank=True, null=True)
+    #footer_content = models.TextField('Подвал', blank=True, null=True)
+    address = models.CharField('Адрес', max_length=250, blank=True, null=True)
+
 
     def __str__(self):
         return self.page_name

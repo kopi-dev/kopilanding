@@ -26,7 +26,7 @@ class PageAdmin(admin.ModelAdmin):
         ('Называние страницы', {'fields': ['page_name']}),
         ('Панель навигации',   {'fields': ['project_name', 'phone', 'mail']}),
         ('Главный блок',       {'fields': ['title', 'title_btn', 'title_btn_url', 'background_color']}),
-        ('Подвал',             {'fields': ['footer_content'], 'classes': ['collapse']}),
+        ('Адрес',             {'fields': ['address'], 'classes': ['collapse']}),
     ]
     inlines = [MainReasonToBelieveInline, ProcessInline]
 

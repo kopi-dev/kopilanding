@@ -139,6 +139,14 @@
 {% block footer %}
 <footer class="footer">
   <div class="container lead" style="border-top: 1px double grey; margin-top: 15px;">
+
+    {% if page_obj.address %}
+    <ul class="nav navbar-nav navbar-left">
+      <li style="padding-top: 10px; color:#777;">
+        <span>{{ page_obj.address }}</span>
+      </li>
+    </ul>
+    {% endif %}
     <ul class="nav navbar-nav navbar-right">
         <li><a class="mb-20" href="tel:{{ page_obj.phone }}">
           <span class="fa fa-phone fa-lg"></span> {{ page_obj.phone }}</a>
