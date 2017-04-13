@@ -11,6 +11,7 @@ class Page(models.Model):
 
     # Main
     title = models.CharField('Заголовок', max_length=200)
+    sub_title = models.CharField('Подзаголовок', max_length=200, blank=True, null=True)
     title_btn = models.CharField('Текст кнопки', max_length=50, default='Действие')
     title_btn_url = models.CharField('URL кнопки', max_length=50, blank=True, null=True)
     background_color = models.CharField('Цвет фона', default='#5180a5', max_length=7, blank=True, null=True)

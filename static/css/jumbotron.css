@@ -25,6 +25,14 @@ a.navbar-brand {
   text-align: center;
   color: #fff;
   font-family: PF_Highway_Sans_Pro;
+  margin-bottom: 30px;
+}
+
+.jumbotron h2, .jumbotron .h2 {
+  text-align: center;
+  color: #fff;
+  font-family: PF_Highway_Sans_Pro;
+  margin-bottom: 30px;
 }
 
 i.fa.fa-circle.iconp {

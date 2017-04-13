@@ -8,6 +8,10 @@
     <div class="container">
       <h1>{{ page_obj.title }}</h1>
 
+      {% if page_obj.sub_title %}
+        <h2>{{ page_obj.sub_title }}</h2>
+      {% endif %}
+
         {% for reason in reas_to_bel_obj %}
           <p class="main">
             <i class="fa fa-circle iconp" aria-hidden="true"></i>
@@ -28,19 +32,19 @@
   <div class="col-lg-4">
     <img class="img-circle ott-center" align="middle" src="/static/images/ott/1.png" alt="Generic placeholder image" width="80" height="80">
     <h2 class="ott-center">Узнайте стоимость</h2>
-    <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+    <p class="lead">Отправьте Ваши файлы на расчет и поучите стоимость за 1 минуту</p>
   </div><!-- /.col-lg-4 -->
 
   <div class="col-lg-4">
     <img class="img-circle ott-center" src="/static/images/ott/2.png" alt="Generic placeholder image" width="80" height="80">
-    <h2 class="ott-center">Оплатите заказ онлайн</h2>
-    <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+    <h2 class="ott-center">Оплатите заказ</h2>
+    <p class="lead">Оплатите онлайн любым удобным для Вас способом</p>
   </div><!-- /.col-lg-4 -->
 
   <div class="col-lg-4">
     <img class="img-circle ott-center" src="/static/images/ott/3.png" alt="Generic placeholder image" width="80" height="80">
     <h2 class="ott-center">Получите доставку</h2>
-    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+    <p class="lead">Наш курьер доставит Вам чертежи даже ночью</p>
   </div><!-- /.col-lg-4 -->
  </div>
 </div>
@@ -54,19 +58,21 @@
       <div class="row featurette">
 
       {% if forloop.counter|divisibleby:2 %}
-        <div class="col-md-7">
+        <div class="col-md-6">
       {% else %}
-        <div class="col-md-7 col-md-push-5">
+        <div class="col-md-6 col-md-push-6">
       {% endif %}
 
-          <h2 class="featurette-heading">{{ process.title }} <span class="text-muted">{{ process.sub_title }}</span></h2>
-          <p>{{ process.content }}</p>
+          {% if process.title or process.sub_title %}
+            <h2 class="featurette-heading">{{ process.title }} <span class="text-muted">{{ process.sub_title }}</span></h2>
+          {% endif %}
+          <p class="lead">{{ process.content }}</p>
         </div>
 
       {% if forloop.counter|divisibleby:2 %}
-        <div class="col-md-5">
+        <div class="col-md-6">
       {% else %}
-        <div class="col-md-5 col-md-pull-7">
+        <div class="col-md-6 col-md-pull-6">
       {% endif %}
 
       {% if process.img_path_as_list.0 != 'None' %}
@@ -139,15 +145,15 @@
 {% block footer %}
 <footer class="footer">
   <div class="container lead" style="border-top: 1px double grey; margin-top: 15px;">
-
-    {% if page_obj.address %}
-    <ul class="nav navbar-nav navbar-left">
-      <li style="padding-top: 10px; color:#777;">
-        <span>{{ page_obj.address }}</span>
-      </li>
-    </ul>
-    {% endif %}
     <ul class="nav navbar-nav navbar-right">
+
+        {% if page_obj.address %}
+{#    <ul class="nav navbar-nav navbar-left">#}
+      <li>
+        <a data-toggle="modal" href="Как проехать?" data-target="#myModal">{{ page_obj.address }}</a>
+      </li>
+{#    </ul>#}
+        {% endif %}
         <li><a class="mb-20" href="tel:{{ page_obj.phone }}">
           <span class="fa fa-phone fa-lg"></span> {{ page_obj.phone }}</a>
         </li>
@@ -157,7 +163,26 @@
       </ul>
   </div>
 </footer>
+
+<!-- Trigger the modal with a button -->
+{#<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>#}
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Как проехать</h4>
+      </div>
+      <div class="modal-body">
+{#        <p>Some text in the modal.</p>#}
+          <p><script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=JhSToqVZ-GMyWn0h8x3Cg5wzRuJDEKvl&height=450"></script></p>
+      </div>
+    </div>
+
+  </div>
+</div>
 {% endblock %}
-
-
-
