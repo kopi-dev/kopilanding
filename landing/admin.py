@@ -1,7 +1,6 @@
 from django.contrib import admin
 
 from .models import Page, MainReasonToBelieve, Process, Document
-# Register your models here.
 
 
 class MainReasonToBelieveInline(admin.TabularInline):
@@ -15,7 +14,7 @@ class MainReasonToBelieveInline(admin.TabularInline):
 class ProcessInline(admin.StackedInline):
     model = Process
     fieldsets = [
-        ('Процесс', {'fields': ['title','sub_title','content','img_path'], 'classes': ['collapse']})
+        ('Процесс', {'fields': ['title', 'sub_title', 'content', 'img_path'], 'classes': ['collapse']})
     ]
     extra = 1
 
