@@ -7,16 +7,16 @@ class Page(models.Model):
     project_name = models.CharField('Название проекта', default='My Landing Page', max_length=40)
     phone = models.CharField('Телефон', default='+7 000 000-00-00', max_length=20)
     mail = models.EmailField('E-mail', default='info@domen.com')
-
     # Main
     title = models.CharField('Заголовок', max_length=200)
     sub_title = models.CharField('Подзаголовок', max_length=200, blank=True, null=True)
     title_btn = models.CharField('Текст кнопки', max_length=50, default='Действие')
     title_btn_url = models.CharField('URL кнопки', max_length=50, blank=True, null=True)
     background_color = models.CharField('Цвет фона', default='#5180a5', max_length=7, blank=True, null=True)
-
     # Footer
     address = models.CharField('Адрес', max_length=250, blank=True, null=True)
+    #Privacy
+    privacy = models.TextField('Политика конфеденциальности', blank=True, null=True)
 
     def __str__(self):
         return self.page_name
@@ -60,9 +60,9 @@ class Document(models.Model):
     document = models.FileField('Прикрепить файл', upload_to='documents/', blank=True, null=True)
     uploaded_at = models.DateTimeField('Создан', auto_now_add=True)
 
+    def __str__(self):
+        return self.email
+
     class Meta:
         verbose_name = 'Заказ на расчет'
         verbose_name_plural = 'Заявка на расчет'
-
-    def __str__(self):
-        return self.email

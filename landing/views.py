@@ -1,5 +1,7 @@
 from django.contrib import messages
 from django.core.mail import send_mail
+from django.core.urlresolvers import reverse_lazy
+
 from kopilanding.settings import local
 from django.views.generic import TemplateView, FormView
 
@@ -12,6 +14,7 @@ from .forms import DocumentForm
 class LandingView(TemplateView, FormView):
     template_name = 'home.html'
     form_class = DocumentForm
+    success_url = reverse_lazy("landing")
 
     def get_context_data(self, **kwargs):
         context = super(LandingView, self).get_context_data(**kwargs)
@@ -26,7 +29,7 @@ class LandingView(TemplateView, FormView):
             form_phone = form.cleaned_data.get('phone')
             form_email = form.cleaned_data.get('email')
             form_description = form.cleaned_data.get('description')
-            doc_name = form.cleaned_data.get('document')
+            doc_name = Document.objects.all().last().document
             subject = 'Новая заявка с лендинга'
             from_email = local.EMAIL_HOST_USER
             content = '''
@@ -56,5 +59,14 @@ class LandingView(TemplateView, FormView):
                 send_message([subject, content])
             except: pass
 
-            #return redirect('landing')
-            return self.render_to_response(self.get_context_data())
+            #return self.render_to_response(self.get_context_data())
+            return super(LandingView, self).form_valid(form)
+
+class PrivacyView(TemplateView):
+    template_name = 'privacy.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(PrivacyView, self).get_context_data(**kwargs)
+
+        context['page_obj'] = Page.objects.all().order_by("?").first()
+        return context
